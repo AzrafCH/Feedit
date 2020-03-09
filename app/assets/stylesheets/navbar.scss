@@ -3,12 +3,12 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #ff6666;
 }
 
 li {
   float: left;
-  border-right:1px solid #bbb;
+  border-right:1px solid #ff8080;
 }
 
 li:last-child {
@@ -24,9 +24,21 @@ li a {
 }
 
 li a:hover:not(.active) {
-  background-color: #111;
+  background-color: #ff8080;
 }
 
 .active {
-  background-color: #4CAF50;
+  background-color: #ff9999;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  font-size: calc(16px + (26 - 16) * ((100vw - 300px) / (1600 - 300)));
+  justify-content: center;
+  margin-bottom: 2em;
+  background: #ffb3b3;
+  color: #fff;
+  min-height: 10vh;
+  text-align: center;
 }
