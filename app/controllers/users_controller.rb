@@ -13,10 +13,16 @@ class UsersController < ApplicationController
     redirect_to controller: 'home', action: 'index'
   end
 
+  def edit
+  end
+
+  def update
+  end
+
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :email)
+    params.require(:user).permit(:username, :password, :email, settings: [:bio, :location, :age])
   end
 end
