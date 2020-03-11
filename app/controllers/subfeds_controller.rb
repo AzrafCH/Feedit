@@ -1,0 +1,2 @@
+class SubfedsController < ApplicationController
+end

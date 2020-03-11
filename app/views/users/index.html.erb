@@ -10,6 +10,11 @@
       <li><%= link_to "Edit Settings", edit_user_path(@user) %></li>
       <li><%= link_to('Logout', {controller: 'sessions', action: 'destroy'},  method: 'post') %></li>
     </ul>
+  <div class = "middle">
+    <aside class="left-sidebar">
+        <%= @user.username %><br>
+    </aside>
+  </div>
 
   </body>
 </html>

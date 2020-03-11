@@ -1,0 +1,2 @@
+class Subfed < ApplicationRecord
+end
