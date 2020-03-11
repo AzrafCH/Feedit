@@ -15,14 +15,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @user.settings.build(setting_type: 'bio')
-    @user.settings.build(setting_type: 'age')
-    @user.settings.build(setting_type: 'location')
   end
 
   def update
     @user = User.find(params[:id])
-    @user.update(settings: [:user][:settings][])
+    @user.update(user_params)
     redirect_to users_path(@user)
   end
 

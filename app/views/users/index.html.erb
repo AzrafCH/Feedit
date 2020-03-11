@@ -6,7 +6,8 @@
     </head>
   <body>
     <ul>
-      <li><%=link_to "Home", root_path %></li>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Edit Settings", edit_user_path %></li>
       <li><%= link_to('Logout', {controller: 'sessions', action: 'destroy'},  method: 'post') %></li>
     </ul>
 
