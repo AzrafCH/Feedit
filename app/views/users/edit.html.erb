@@ -1,16 +1,1 @@
-<%= form_for @user do |f| %>
-
-  <%= f.fields_for :settings do |set| %>
-    <%= set.label :bio %>
-    <%= set.text_area :bio %><br>
-
-    <%= set.label :age %>
-    <%= set.text_field :age %><br>
-
-    <%= set.label :location %>
-    <%= set.text_field :location %>
-  <% end %>
-
-  <%= f.submit %>
-<% end %>
-    
+<%= render 'form' %>

@@ -1,0 +1,26 @@
+
+<%= form_for @user do |f| %>
+<div>
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+</div>
+    <h2>Settings</h2>
+
+  <%= f.fields_for :settings do |set| %>
+    <div>
+    <%= set.label :bio %>
+    <%= set.text_area :bio %><br>
+
+
+    <%= set.label :age %>
+    <%= set.text_field :age %><br>
+
+
+    <%= set.label :location %>
+    <%= set.text_field :location %><br>
+    </div>
+  <% end %>
+<% end %>
