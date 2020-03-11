@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user.settings.build(age: 'How old are you?', bio: 'Tell me about yourself...', location: 'Where do you live?')
   end
 
   def update
