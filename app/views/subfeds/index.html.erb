@@ -1,5 +1,9 @@
 <h1> Your Created Subfeeds! </h1>
 
-<% @subfeds do |sub| %>
-    <li><%= link_to sub.title, subfed_path(@subfed) %></li>
+<h2><%= @subfeds.title %></h2>
+
+<% @subfeds.each do |subfeed| %>
+  <ul>
+    <li><%= link_to subfeed.title, subfed_path(@subfed) %></li>
+  </ul>
   <% end %>
