@@ -1,7 +1,6 @@
 class SubfedsController < ApplicationController
 
   def index
-    @subfed = Subfed.all
   end
 
   def new
@@ -19,6 +18,7 @@ class SubfedsController < ApplicationController
   def create
     @subfed = Subfed.create(subfed_params)
     return redirect_to controller: 'subfeds', action: 'new' unless @subfed.save
+    redirect_to @subfed
   end
 
   def update
