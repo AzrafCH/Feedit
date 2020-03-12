@@ -1,6 +1,7 @@
 class SubfedsController < ApplicationController
 
   def index
+    @subfeds = Subfed.all
   end
 
   def new
@@ -16,9 +17,13 @@ class SubfedsController < ApplicationController
   end
 
   def create
-    @subfed = Subfed.create(subfed_params)
-    return redirect_to controller: 'subfeds', action: 'new' unless @subfed.save
-    redirect_to @subfed
+    @subfed = Subfed.new(subfed_params)
+    if @subfed.save
+      redirect_to subfed_url(@subfed)
+    else
+      @subfeds = Subfed.all
+      render :index
+    end
   end
 
   def update
