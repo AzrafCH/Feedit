@@ -1,3 +1,5 @@
+
+
 class SubfedsController < ApplicationController
 
   def index
@@ -27,7 +29,7 @@ class SubfedsController < ApplicationController
     #redirect_to controller: 'subfeds', action: 'index'
     if @subfed.save
      redirect_to subfed_url(@subfed)
-    else
+   else @subfed.save!
       @subfeds = Subfed.all
       render :index
     end
