@@ -25,14 +25,15 @@ class SubfedsController < ApplicationController
     #redirect_to subfed_path(@subfed)
 
     @subfed = Subfed.create(subfed_params)
-    #return redirect_to controller: 'subfeds', action: 'new' unless @subfed.save
-    #redirect_to controller: 'subfeds', action: 'index'
+
     if @subfed.save
-     redirect_to subfed_url(@subfed)
-   else @subfed.save!
-      @subfeds = Subfed.all
+      redirect_to subfed_url(@subfed)
+    else
+      Subfed.all
       render :index
     end
+    #return redirect_to controller: 'subfeds', action: 'new' unless @subfed.save
+    #redirect_to controller: 'subfeds', action: 'show'
   end
 
   def update
@@ -49,7 +50,7 @@ class SubfedsController < ApplicationController
 
   private
     def subfed_params
-      params.require(:subfed).permit(:title, :content, :subfed_id)
+      params.require(:subfed).permit(:title, :content, :id)
     end
 
 end
