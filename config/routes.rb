@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/destroy' => 'sessions#destroy'
 
   resources :users, only: [:index, :new, :create, :edit, :update]
-  resources :subfeds, only: [:new, :create, :index, :edit, :update]
+  resources :subfeds, only: [:index, :new, :create, :edit, :update]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

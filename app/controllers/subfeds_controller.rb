@@ -17,27 +17,26 @@ class SubfedsController < ApplicationController
   end
 
   def create
-    @subfed = Subfed.create(title: params[:title])
-    session[:subfed_id] = @subfed.id
-    @subfed.save
-    redirect_to subfed_url(@subfed)
+    #@subfed = Subfed.new(subfed_params)
+    #session[:subfed_id] = @subfed.id
+  #  @subfed.save
+    #redirect_to subfed_path(@subfed)
 
-  #  return redirect_to controller: 'subfeds', action: 'new' unless @subfed.save
-  #  session[:subfed_id] = @subfed.id
-  #  redirect_to controller: 'subfeds', action: 'index'
-    #if @subfed.save
-    #  session[:subfed_id] = @subfed.id
-    #  redirect_to subfed_url(@subfed)
-  #  else
-    #  @subfeds = Subfed.all
-    #  render :index
-  #  end
+    @subfed = Subfed.create(subfed_params)
+    #return redirect_to controller: 'subfeds', action: 'new' unless @subfed.save
+    #redirect_to controller: 'subfeds', action: 'index'
+    if @subfed.save
+     redirect_to subfed_url(@subfed)
+    else
+      @subfeds = Subfed.all
+      render :index
+    end
   end
 
   def update
     @subfed = Subfed.find(params[:id])
     @subfed.update(subfed_params)
-    redirect_to subfeds_path(@subfed)
+    redirect_to subfed_path(@subfed)
   end
 
   def destroy
@@ -48,7 +47,7 @@ class SubfedsController < ApplicationController
 
   private
     def subfed_params
-      params.require(:subfeds).permit(:title, :content, :subfed_id)
+      params.require(:subfed).permit(:title, :content, :subfed_id)
     end
 
 end

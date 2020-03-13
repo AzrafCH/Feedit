@@ -1,8 +1,12 @@
 <h1>Create a new Subfeed</h1>
 
-<%= form_for @subfed, controller: 'subfeds', action: 'create' do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<%= form_tag subfeds_path do %>
+  <label>Subfeed Title:</label><br>
+  <%= text_field_tag  :'subfed[title]' %><br>
 
-  <%= f.submit "Create" %>
+  <label>Subfeed Description:</label><br>
+  <%= text_field_tag  :'subfed[content]' %><br>
+
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= submit_tag "Create" %>
 <% end %>
