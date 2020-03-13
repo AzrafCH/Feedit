@@ -1,6 +1,7 @@
 <h1>Create a new Subfeed</h1>
 
 <%= form_tag subfeds_path do %>
+<%= form_errors_for @subfed %>
 
   <label>Subfeed Title:</label><br>
   <%= text_field_tag  :'subfed[title]' %><br>
