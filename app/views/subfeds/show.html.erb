@@ -1,5 +1,5 @@
 <h1><%= @subfed.title %></h1>
 
-<h2><%= @subfed.content %></h2> 
+<h2><%= @subfed.content %></h2>
 
-<%= link_to "Back", subfeds_path %> 
+<%= link_to "Back", subfeds_path %> <%= link_to "Edit Subfeed", edit_subfed_path(@subfed) %> <%= link_to('Delete', {controller: 'subfeds', action: 'destroy'},  method: 'post') %>
