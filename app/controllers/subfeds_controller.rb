@@ -36,8 +36,7 @@ class SubfedsController < ApplicationController
   end
 
   def destroy
-    @subfed = Subfed.find(params[:id])
-    @subfed.destroy
+    @subfed = Subfed.find(params[:id]).destroy
     redirect_to subfeds_path
   end
 
