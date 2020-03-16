@@ -3,6 +3,10 @@
 <%= form_tag posts_path do %>
 <%= form_errors_for @post %>
 
+  <label>Post Title:</label><br>
+  <%= text_field_tag  :'post[title]' %><br>
+
+
   <label>Post Summary:</label><br>
   <%= text_field_tag  :'post[summary]' %><br>
 

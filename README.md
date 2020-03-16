@@ -12,3 +12,5 @@ Educational Project in which i build a Reddit Clone.
 -- build upvote feature
 
 -- build omniauth for google/facebook
+
+-- build a way to save title and only edit summary in posts 
