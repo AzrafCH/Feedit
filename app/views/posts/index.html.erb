@@ -1,0 +1,5 @@
+<% @posts.each do |post| %>
+    <h2><%= link_to post.title, post_url(post) %></h2>
+  <% end %>
+
+<%= link_to "Home", users_path %>
