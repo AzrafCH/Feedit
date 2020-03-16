@@ -5,3 +5,5 @@
 <% @subfeds.each do |subfeed| %>
     <h2><%= link_to subfeed.title, subfed_url(subfeed) %></h2>
   <% end %>
+
+<%= link_to "Home", users_path %>
