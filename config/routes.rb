@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :new, :create, :edit, :update]
   resources :subfeds, only: [:index, :new, :create, :edit, :update, :show, :destroy]
+    patch 'subfeds/:id', to: 'subfeds#update'
 
   resources :posts, only: [:index, :new, :create, :edit, :update, :show, :destroy]
+    patch 'posts/:id', to: 'posts#update'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
