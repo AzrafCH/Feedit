@@ -1,6 +1,6 @@
 <h1>Create a new Post</h1>
 
-<%= form_tag posts_path do %>
+<!--<%= form_tag posts_path do %>
 <%= form_errors_for @post %>
 
   <label>Post Title:</label><br>
@@ -9,8 +9,23 @@
   <label>Post Summary:</label><br>
   <%= text_field_tag  :'post[summary]' %><br>
 
-  <%= collection_select :subfed, :subfed_ids, Subfed.all, :_id, :title %><br>
+  <%#= collection_select :subfed, :subfed_ids, Subfed.all, :id, :title %><br>
 
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <%= submit_tag "Create" %>
+<% end %> -->
+
+<%= form_for @post do |f| %>
+<%= form_errors_for @post %>
+
+<%= f.label "Post Title:" %><br>
+<%= f.text_field :title %><br>
+
+<%= f.label "Post Summary:" %><br>
+<%= f.text_area :summary %><br>
+
+<%= f.collection_select :subfed_ids, Subfed.all, :id, :title %><br>
+
+<%= f.submit "Create" %>
+
 <% end %>
