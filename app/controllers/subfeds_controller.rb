@@ -16,6 +16,7 @@ class SubfedsController < ApplicationController
 
   def show
     @subfed = Subfed.find(params[:id])
+    @post = Post.all
   end
 
   def create
@@ -42,7 +43,7 @@ class SubfedsController < ApplicationController
 
   private
     def subfed_params
-      params.require(:subfed).permit(:title, :content, :id)
+      params.require(:subfed).permit(:title, :content, :id )
     end
 
 end

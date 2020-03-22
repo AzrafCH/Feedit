@@ -29,10 +29,12 @@ ActiveRecord::Schema.define(version: 20200321034958) do
   end
 
   create_table "sub_posts", force: :cascade do |t|
-    t.string   "subfed_id"
-    t.string   "post_id"
+    t.integer  "subfed_id"
+    t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_sub_posts_on_post_id"
+    t.index ["subfed_id"], name: "index_sub_posts_on_subfed_id"
   end
 
   create_table "subfeds", force: :cascade do |t|
