@@ -43,7 +43,7 @@ class SubfedsController < ApplicationController
 
   private
     def subfed_params
-      params.require(:subfed).permit(:title, :content, :id )
+      params.require(:subfed).permit(:title, :content, :id, :subfed_id)
     end
 
 end

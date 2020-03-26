@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200321034958) do
+ActiveRecord::Schema.define(version: 20200326080051) do
+
+  create_table "forums", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.integer  "subfed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_forums_on_post_id"
+    t.index ["subfed_id"], name: "index_forums_on_subfed_id"
+    t.index ["user_id"], name: "index_forums_on_user_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -26,15 +37,6 @@ ActiveRecord::Schema.define(version: 20200321034958) do
     t.string   "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "sub_posts", force: :cascade do |t|
-    t.integer  "subfed_id"
-    t.integer  "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_sub_posts_on_post_id"
-    t.index ["subfed_id"], name: "index_sub_posts_on_subfed_id"
   end
 
   create_table "subfeds", force: :cascade do |t|

@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
-  has_many :sub_posts
-  has_many :subfeds, through: :sub_posts
-  belongs_to :users, optional: true
+  belongs_to :user, optional: true
+  has_many :forums
+  has_many :subfeds, through: :forums
+  has_many :users, through: :forums
 end

@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :summary, :id, subfed_ids:[] )
+      params.require(:post).permit(:title, :summary, :id, :post_id )
     end
 
 end
