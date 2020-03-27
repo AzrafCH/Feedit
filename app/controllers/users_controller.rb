@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     return redirect_to controller: 'users', action: 'new' unless @user.save
     session[:user_id] = @user.id
+    session[:forums_user_id] = @user.user_id
     redirect_to controller: 'home', action: 'index'
   end
 

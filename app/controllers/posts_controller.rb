@@ -5,19 +5,23 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @user = User.find(session[:user_id])
+    @post = @user.posts.new(id: :post_id)
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @user = User.find(params[:user_id])
+    @post = @user.Post.find(params[:id])
   end
 
   def show
+    @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
   end
 
   def create
-    @post = Post.create(post_params)
+    @user = User.find(session[:user_id])
+    @post = @user.posts.create(post_params)
 
     if @post.save
       redirect_to post_url(@post)
@@ -28,13 +32,15 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:post_id])
     @post.update(post_params)
     redirect_to post_url(@post)
   end
 
   def destroy
-    @post = Post.find(params[:id]).destroy
+    @user.find(params[:user_id])
+    @post = @user.Post.find(params[:id]).destroy
     redirect_to posts_path
   end
 
