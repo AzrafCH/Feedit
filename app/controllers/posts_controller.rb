@@ -1,12 +1,11 @@
 class PostsController < ApplicationController
 
   def index
-    @user = user.where(user_id: current_user.id)
-    @posts = @user.posts.all
+    @posts = Post.all
   end
 
   def new
-    @post = current_user.posts.new(post_params)
+    @post = Post.new(post_params)
   end
 
   def edit
@@ -14,12 +13,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @user = User.where(user_id: current_user.id)
-    @post = Post.find(params[:id])
+    @post = Post.find_by_id(params[:id])
   end
 
   def create
-    @post = current_user.posts.create(post_params)
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       redirect_to post_url(@post)
@@ -30,7 +28,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find_by_id(params[:id])
     @post.update(post_params)
     redirect_to post_url(@post)
   end
@@ -42,7 +40,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.permit(:title, :summary, :id, :post_id )
+      params.permit(:title, :summary, users:[], :post_id )
     end
 
 end
