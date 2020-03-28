@@ -7,12 +7,10 @@ class PostsController < ApplicationController
   end
 
   def new
-    @subfed = Subfed.find(params[:subfed_id])
-    @post = @subfed.posts.new
+    @post = Post.new(post_params)
   end
 
   def edit
-    @subfed = Subfed.find(params[:subfed_id])
     @post = Post.find(params[:post_id])
   end
 
@@ -21,12 +19,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @subfed = Subfed.find(params[:subfed_id])
-    @post = @subfed.posts.new(post_params)
-    @post.user_id = current_user.user_id
-    @post.post_id = params[:id]
+    @subfed = Subfed.find_by(params[:id])
+    @post = Post.create(post_params)
 
     if @post.save
+      @subfed.posts << @post
       redirect_to post_url(@post)
     else
       Post.all
@@ -47,7 +44,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :summary, :id, :post_id )
+      params.permit(:title, :summary, :id, :post_id )
     end
 
 end

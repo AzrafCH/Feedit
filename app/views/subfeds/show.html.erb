@@ -2,7 +2,7 @@
 
 <p><%= @subfed.content %></p>
 
-<% @user.posts.each do |post| %>
+<% @subfed.posts.each do |post| %>
   <p><%= link_to post.title , posts_path(post)%></p>
 <% end %>
 

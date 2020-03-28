@@ -15,7 +15,7 @@
   <%= submit_tag "Create" %>
 <% end %> -->
 
-<%= form_for(@post) do |f| %>
+<%= form_for( @post) do |f| %>
 <%= form_errors_for @post %>
 
 <%= f.label "Post Title:" %><br>
@@ -24,7 +24,7 @@
 <%= f.label "Post Summary:" %><br>
 <%= f.text_area :summary %><br>
 
-<%= f.collection_select :subfed_ids, Subfed.all, :id, :title %><br>
+<%= f.collection_select :id, Subfed.all, :subfed_id, :title %><br>
 
 <%= f.submit "Create" %>
 
