@@ -7,12 +7,11 @@ class SubfedsController < ApplicationController
   end
 
   def new
-    @user = current_user
-    @subfed = @user.subfeds.new(subfed_params)
+    @subfed = current_user.subfeds.new(subfed_params)
   end
 
   def edit
-    @subfed = Subfed.find(params[:id])
+    @subfed = current_user.subfeds.find(params[:id])
   end
 
   def show
@@ -20,7 +19,7 @@ class SubfedsController < ApplicationController
   end
 
   def create
-    @subfed = Subfed.create(subfed_params)
+    @subfed = current_user.subfeds.create(subfed_params)
 
     if @subfed.save!
       redirect_to subfed_url(@subfed)
@@ -31,7 +30,7 @@ class SubfedsController < ApplicationController
   end
 
   def update
-    @subfed = Subfed.find(params[:id])
+    @subfed = current_user.subfeds.find(params[:id])
     @subfed.update(subfed_params)
     redirect_to subfed_url(@subfed)
   end
@@ -42,6 +41,7 @@ class SubfedsController < ApplicationController
   end
 
   private
+
     def subfed_params
       params.permit(:title, :content, :id, :subfed_id)
     end

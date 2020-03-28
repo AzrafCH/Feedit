@@ -7,23 +7,21 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
   end
 
   def edit
-    @post = Post.find(params[:post_id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def show
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params[:id])
   end
 
   def create
-    @subfed = Subfed.find_by(params[:id])
-    @post = Post.create(post_params)
+    @post = current_user.posts.create(post_params)
 
     if @post.save
-      @subfed.posts << @post
       redirect_to post_url(@post)
     else
       Post.all
@@ -32,13 +30,13 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:post_id])
+    @post = current_user.posts.find(params[:id])
     @post.update(post_params)
     redirect_to post_url(@post)
   end
 
   def destroy
-    @post = Post.find(params[:post_id]).destroy
+    @post = current_user.posts.find(params[:id]).destroy
     redirect_to posts_path
   end
 
