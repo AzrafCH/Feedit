@@ -34,13 +34,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = current_user.posts.find(params[:id]).destroy
+    @post = Post.find(params[:id]).destroy
     redirect_to posts_path
   end
 
   private
     def post_params
-      params.permit(:title, :summary, users:[], :post_id )
+      params.permit( :title, :summary, :post_id)
     end
 
 end

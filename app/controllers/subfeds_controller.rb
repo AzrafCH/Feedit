@@ -28,7 +28,7 @@ class SubfedsController < ApplicationController
   end
 
   def update
-    @subfed = Subfeds.find_by_id(params[:id])
+    @subfed = Subfed.find_by_id(params[:id])
     @subfed.update(subfed_params)
     redirect_to subfed_url(@subfed)
   end
@@ -41,7 +41,7 @@ class SubfedsController < ApplicationController
   private
 
     def subfed_params
-      params.permit(:title, :content, users:[], user_ids:[], :subfed_id)
+      params.require(:subfed).permit(:title, :content, :subfed_id)
     end
 
 end
