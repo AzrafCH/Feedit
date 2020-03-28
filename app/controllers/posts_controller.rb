@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
 
-  before_action :current_user
-
   def index
-    @posts = Post.all
+    @user = user.where(user_id: current_user.id)
+    @posts = @user.posts.all
   end
 
   def new
@@ -15,6 +14,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @user = User.where(user_id: current_user.id)
     @post = Post.find(params[:id])
   end
 

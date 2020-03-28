@@ -1,25 +1,28 @@
 class SubfedsController < ApplicationController
 
-  before_action :current_user
-
   def index
+    @user = User.where(user_id: current_user.id)
     @subfeds = Subfed.all
   end
 
   def new
-    @subfed = current_user.subfeds.new(subfed_params)
+    @user = User.where(user_id: current_user.id)
+    @subfed = @user.subfeds.new(subfed_params)
   end
 
   def edit
+    @user = User.where(user_id: current_user.id)
     @subfed = current_user.subfeds.find(params[:id])
   end
 
   def show
+    @user = User.where(user_id: current_user.id)
     @subfed = Subfed.find(params[:id])
   end
 
   def create
-    @subfed = current_user.subfeds.create(subfed_params)
+    @user = User.where(user_id: current_user.id)
+    @subfed = @user.subfeds.create(subfed_params)
 
     if @subfed.save!
       redirect_to subfed_url(@subfed)
@@ -30,7 +33,8 @@ class SubfedsController < ApplicationController
   end
 
   def update
-    @subfed = current_user.subfeds.find(params[:id])
+    @user = User.where(user_id: current_user.id)
+    @subfed = @user.subfeds.find(params[:id])
     @subfed.update(subfed_params)
     redirect_to subfed_url(@subfed)
   end
