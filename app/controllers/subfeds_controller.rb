@@ -1,47 +1,46 @@
-
-
 class SubfedsController < ApplicationController
+
+  before_action :current_user
 
   def index
     @subfeds = Subfed.all
   end
 
   def new
-    @user = User.find(params[:user_id])
-    @subfed = @user.Subfed.new(id: :subfed_id)
+    @user = current_user
+    @subfed = @user.subfeds.new(subfed_params)
   end
 
   def edit
-    @user = User.find(params[:user_id])
-    @subfed = @user.Subfed.find(params[:subfed_id])
+    @subfed = Subfed.find(params[:subfed_id])
   end
 
   def show
-    @subfed = Subfed.find(params[:id])
+    @subfed = Subfed.find(params[:subfed_id])
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @subfed = @user.Subfed.create(subfed_params)
+    @user = current_user
+    @subfed = @user.subfeds.new(subfed_params)
+    @subfed.id = params[:subfed_id]
+    @subfed.user_id = current_user.user_id
 
     if @subfed.save
       redirect_to subfed_url(@subfed)
     else
-      @user.Subfed.all
+      Subfed.all
       render :index
     end
   end
 
   def update
-    @user = User.find(params[:user_id])
-    @subfed = Subfed.find(params[:subfed_id])
+    @subfed = Subfed.find(params[:id])
     @subfed.update(subfed_params)
     redirect_to subfed_url(@subfed)
   end
 
   def destroy
-    @user = User.find(session[:user_id])
-    @subfed = @user.subfeds.find(params[:id]).destroy
+    @subfed = Subfed.find(params[:id]).destroy
     redirect_to subfeds_path
   end
 

@@ -9,8 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     return redirect_to controller: 'users', action: 'new' unless @user.save
-    session[:user_id] = @user.id
-    session[:forums_user_id] = @user.user_id
+    session[:user_id] = @user.user_id
     redirect_to controller: 'home', action: 'index'
   end
 
@@ -19,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @user.update(user_params)
     redirect_to users_path(@user)
   end
