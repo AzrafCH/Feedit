@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new(post_params)
+    @post = Post.new
   end
 
   def edit
@@ -13,10 +13,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by_id(params[:id])
+    @post = Post.find_by(id: params[:id])
   end
 
   def create
+
     @post = current_user.posts.build(post_params)
 
     if @post.save
@@ -40,7 +41,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.permit( :title, :summary, :post_id)
+      params.require(:post).permit( :title, :summary, :post_id, subfed_ids: [])
     end
 
 end

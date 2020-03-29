@@ -2,7 +2,9 @@
 
 <p><%= @subfed.content %></p>
 
-
+<% @post.subfeds.each do |post| %>
+    <p><%= link_to post.title, post_url(post) %></p>
+  <% end %>
 
 <%= link_to "Back", subfeds_path %><br>
  <%= link_to "Edit Subfeed", edit_subfed_path(@subfed) %><br>
