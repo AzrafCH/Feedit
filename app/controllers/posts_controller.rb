@@ -9,16 +9,16 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def show
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find_by(params[:id])
+    @forum.subfed.id = Subfed.id
   end
 
   def create
-
-    @post = current_user.posts.build(post_params)
+    @post = Post.create(post_params)
 
     if @post.save
       redirect_to post_url(@post)
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit( :title, :summary, :post_id, subfed_ids: [])
+      params.require(:post).permit( :title, :summary )
     end
 
 end

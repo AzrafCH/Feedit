@@ -14,6 +14,7 @@ class SubfedsController < ApplicationController
 
   def show
     @subfed = Subfed.find_by_id(params[:id])
+    @subfed.forums.build
     #@subfed.posts = Post.find(params[:id]).where(subfed_ids: Subfed.id)
   end
 
@@ -42,7 +43,7 @@ class SubfedsController < ApplicationController
   private
 
     def subfed_params
-      params.require(:subfed).permit(:title, :content, :subfed_id)
+      params.require(:subfed).permit(:title, :content)
     end
 
 end
