@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    byebug
     @post = Post.create(post_params)
 
     if @post.save
@@ -41,7 +42,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit( :title, :summary, :subfed_id )
+      params.require(:post).permit( :title, :summary)
     end
 
 end
