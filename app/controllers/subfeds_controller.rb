@@ -6,22 +6,22 @@ class SubfedsController < ApplicationController
 
   def new
     @subfed = Subfed.new
+    @forum = Forum.new
   end
 
   def edit
-    @subfed = current_user.subfeds.find(params[:id])
+    @subfed = Subfed.find(params[:id])
   end
 
   def show
     @subfed = Subfed.find_by_id(params[:id])
-    #@subfed.forums.build
-    #@subfed.posts = Post.find(params[:id]).where(subfed_ids: Subfed.id)
+    @forum = Forum.where(subfed_id: @subfed.id)
   end
 
   def create
-    @subfed = current_user.subfeds.build(subfed_params)
+    @subfed = Subfed.create(subfed_params)
 
-    if @subfed.save!
+    if @subfed.save
       redirect_to subfed_url(@subfed)
     else
       Subfed.all

@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-  5.times do
-    User.create(username: Faker::FunnyName.unique.name, password: " ", email: " ")
-  end
+#  User.destroy_all
+#  Subfed.destroy_all
+#  Post.destroy_all
+#  Forum.destroy_all
 
-  5.times do
-    Subfed.create(title: Faker::Quotes::Shakespeare.king_richard_iii_quote, content: Faker::Science.scientist)
-  end
 
-  5.times do
-    Post.create(title: Faker::Quotes::Shakespeare.as_you_like_it_quote, summary: Faker::Movies::StarWars.wookiee_sentence)
-  end
+#   user = User.create(username: Faker::FunnyName.unique.name, password: " ", email: " ")
+#   subfed =  Subfed.create(title: Faker::Quotes::Shakespeare.king_richard_iii_quote, content: Faker::Science.scientist)
+#   post =  Post.create(title: Faker::Quotes::Shakespeare.as_you_like_it_quote, summary: Faker::Movies::StarWars.wookiee_sentence)
+
+#   Forum.create(user_id: user.id, subfed_id: subfed.id, post_id: post.id)

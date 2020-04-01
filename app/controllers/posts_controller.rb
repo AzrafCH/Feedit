@@ -6,6 +6,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @subfeds = Subfed.all
+    @forum = Forum.new
   end
 
   def edit
@@ -14,7 +16,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(params[:id])
-    @post.subfeds = Subfed.where(params[:subfed_id])
   end
 
   def create
