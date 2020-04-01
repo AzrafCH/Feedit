@@ -14,7 +14,7 @@
 <% end %> -->
 
 <%= form_for @subfed do |f| %>
-<%= f.hidden_field :forum, value: @forum.subfed_id %>
+
 
   <%= f.label "Title: " %><br>
   <%= f.text_field :title %><br>
@@ -23,4 +23,5 @@
   <%= f.text_area :content %><br>
 
   <%= f.submit "Create Meal" %>
+  <%= f.hidden_field :forum, value: @forum.subfed_id %>
 <% end %>
