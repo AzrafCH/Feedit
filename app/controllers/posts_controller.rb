@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-
+    byebug
     if @post.save
       redirect_to post_url(@post)
     else
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit( :title, :summary)
+      params.require(:post).permit( :title, :summary, :subfed_id)
     end
 
 end
