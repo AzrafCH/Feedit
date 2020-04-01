@@ -11,9 +11,9 @@
   end
 
   5.times do
-    Subfed.create(title: Faker::Marketing.buzzwords, content: Faker::Science.scientist)
+    Subfed.create(title: Faker::Quotes::Shakespeare.king_richard_iii_quote, content: Faker::Science.scientist)
   end
 
   5.times do
-    Post.create(title: Faker::Quotes::Shakespeare.as_you_like_it_quote, summary: Faker::Movies::StarWars.wookiee_sentence, subfed_id: Subfed.all.sample.id)
+    Post.create(title: Faker::Quotes::Shakespeare.as_you_like_it_quote, summary: Faker::Movies::StarWars.wookiee_sentence)
   end
