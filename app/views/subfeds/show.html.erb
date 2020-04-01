@@ -2,6 +2,12 @@
 
 <p><%= @subfed.content %></p>
 
+<% @subfed.forums.each do |forum| %>
+  <tr>
+    <td><%= forum.post_id.title %></td>
+  </tr>
+<% end %>
+
 
 
 <%= link_to "Back", subfeds_path %><br>

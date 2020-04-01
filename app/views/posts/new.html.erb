@@ -25,7 +25,7 @@
   <%= f.text_area :summary %><br>
 
   <%= f.label :subfed_id, "Subfed" %><br>
-  <%=  collection_select :forum, :subfed_id, @subfeds, :id, :title %><br>
+  <%= f.collection_select  :subfed_ids, @subfeds, :id, :title %><br>
 
 
   <%= f.submit "Create Post" %>
