@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
   def new
-    @forum = Forum.new
   end
 
   def create

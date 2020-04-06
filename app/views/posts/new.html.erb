@@ -11,7 +11,5 @@
   <%= f.label :subfed_id, "Subfeed" %><br>
   <%= f.collection_select :subfed_id, @subfeds, :id, :title %><br>
 
-
   <%= f.submit "Create Post" %>
-  <%= f.hidden_field :forum, value: @forum.post_id %>
 <% end %>

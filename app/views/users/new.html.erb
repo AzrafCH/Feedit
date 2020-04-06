@@ -1,5 +1,4 @@
 <%= form_for @user, controller: 'users', action: 'create' do |f| %>
-<%= f.hidden_field :forum, value: @forum.user_id %>
   <%= f.label :username %>
   <%= f.text_field :username %>
 

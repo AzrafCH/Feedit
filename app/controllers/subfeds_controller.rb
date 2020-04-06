@@ -6,7 +6,6 @@ class SubfedsController < ApplicationController
 
   def new
     @subfed = Subfed.new
-    @forum = Forum.new
   end
 
   def edit
@@ -15,7 +14,6 @@ class SubfedsController < ApplicationController
 
   def show
     @subfed = Subfed.find_by_id(params[:id])
-    @forum = Forum.where(subfed_id: @subfed.id)
   end
 
   def create

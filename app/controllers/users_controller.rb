@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   end
 
   def new
-    @forum = Forum.new
   end
 
   def create

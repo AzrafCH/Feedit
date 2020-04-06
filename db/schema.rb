@@ -10,25 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200401162736) do
-
-  create_table "forums", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.integer  "subfed_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_forums_on_post_id"
-    t.index ["subfed_id"], name: "index_forums_on_subfed_id"
-    t.index ["user_id"], name: "index_forums_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 20200316080854) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "summary"
+    t.integer  "subfed_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "subfed_id"
   end
 
   create_table "settings", force: :cascade do |t|

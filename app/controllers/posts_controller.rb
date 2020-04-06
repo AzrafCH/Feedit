@@ -7,7 +7,6 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @subfeds = Subfed.all
-    @forum = Forum.new
   end
 
   def edit
@@ -20,7 +19,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    byebug
     if @post.save
       redirect_to post_url(@post)
     else
@@ -42,7 +40,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit( :title, :summary, :subfed_id)
+      params.require(:post).permit( :title, :summary, :subfed_id, :user_id)
     end
 
 end
