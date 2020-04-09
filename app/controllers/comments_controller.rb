@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  before_action :require_logged_in, :current_user
+
   def index
     @comments = Comment.all
   end
@@ -19,6 +21,7 @@ class CommentsController < ApplicationController
 
  def create
    @comment = Comment.create(comment_params)
+   @comment.user_id = current_user.id
    if @comment.save
      redirect_to comment_url(@comment)
    else
