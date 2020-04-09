@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :new, :create, :edit, :update, :show, :destroy]
   patch 'posts/:id', to: 'posts#update'
 
+  resources :comments, only: [:index, :new, :create, :edit, :update, :show, :destroy]
+  patch 'comments/:id', to: 'comments#update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'home#index'
