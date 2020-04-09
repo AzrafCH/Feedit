@@ -1,0 +1,7 @@
+<h1><%= @comment.content  %></h1>
+
+
+
+<%= link_to "Back", comments_path %><br>
+<%= link_to "Edit Comment", edit_comment_path(@comment) %><br>
+<%= button_to "Delete Post", comment_path(@comment), method: :delete %><br>

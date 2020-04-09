@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
+    @posts = Post.all
   end
 
  def edit

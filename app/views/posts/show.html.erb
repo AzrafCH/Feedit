@@ -1,8 +1,13 @@
 
-
 <h1><%= @post.title  %></h1>
 
 <h2><%= @post.summary %></h2>
+
+<%= link_to "Create Comment", new_comment_path(@comment) %><br>
+
+<% @post.comments.each do |comment| %>
+<h4><%= comment.content %><h4>
+<% end %>
 
 <%= link_to "Back", posts_path %><br>
 <%= link_to "Edit Post", edit_post_path(@post) %><br>

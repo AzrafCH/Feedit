@@ -1,0 +1,5 @@
+<% @comments.each do |comment| %>
+    <h2><%= link_to comment.content, comment_url(comment) %></h2>
+  <% end %>
+
+<%= link_to "Home", users_path %> <%= link_to "Create New Comment", new_comment_path %>
