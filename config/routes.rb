@@ -12,11 +12,17 @@ Rails.application.routes.draw do
   resources :subfeds, only: [:index, :new, :create, :edit, :update, :show, :destroy]
   patch 'subfeds/:id', to: 'subfeds#update'
 
-  resources :posts, only: [:index, :new, :create, :edit, :update, :show, :destroy]
-  patch 'posts/:id', to: 'posts#update'
+  resources :posts, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
+    patch 'posts/:id', to: 'posts#update'
+    resources :comments
+    patch 'comments/:id', to: 'comments#update'
+  end
 
-  resources :comments, only: [:index, :new, :create, :edit, :update, :show, :destroy]
-  patch 'comments/:id', to: 'comments#update'
+  resources :comments do
+    resources :comments
+  end
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'home#index'

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-  before_action :require_logged_in, :current_user
+  before_action :require_logged_in
 
   def index
     @comments = Comment.all
@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
-    @posts = Post.all
   end
 
  def edit
@@ -22,10 +21,10 @@ class CommentsController < ApplicationController
  def create
    @comment = Comment.create(comment_params)
    @comment.user_id = current_user.id
+
    if @comment.save
      redirect_to comment_url(@comment)
    else
-     Comment.all
      render :index
    end
  end
@@ -44,6 +43,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :user_id, :post_id)
+    params.require(:comment).permit(:content, :post_id, :user_id)
   end
 end
