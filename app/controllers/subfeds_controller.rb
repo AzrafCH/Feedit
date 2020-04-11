@@ -20,7 +20,6 @@ class SubfedsController < ApplicationController
 
   def create
     @subfed = Subfed.new(subfed_params)
-    @subfed.user_id = session[:user_id]
     @subfed.save
 
     redirect_to subfed_url(@subfed)
@@ -40,7 +39,7 @@ class SubfedsController < ApplicationController
   private
 
     def subfed_params
-      params.require(:subfed).permit(:title, :content, :user_id)
+      params.require(:subfed).permit(:title, :content)
     end
 
 end

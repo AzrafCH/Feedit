@@ -16,14 +16,13 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by(params[:id])
+    @post = Post.find_by(params[:post_id])
     @subfed = Subfed.find_by(params[:id])
 
     @comment = Comment.new
     @comment.post_id = @post.id
     @comment.user_id = session[:user_id]
     @comment.save
-
   end
 
   def create

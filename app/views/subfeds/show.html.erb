@@ -2,9 +2,10 @@
 
 <p><%= @subfed.content %></p>
 
+
 <%= link_to "Create Post", new_post_path(@post) %><br>
 
-<% @subfed.posts.each do |post| %>
+<% @subfed.posts.collect do |post| %>
 <h4><%= link_to post.title, post_path(post) %><h4>
 <% end %>
 
