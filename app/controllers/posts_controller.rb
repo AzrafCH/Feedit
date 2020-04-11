@@ -29,9 +29,9 @@ class PostsController < ApplicationController
   def create
     @subfed = Subfed.find_by_id(params[:id])
     @post = Post.new(post_params)
-    @post.user_id = session[:user_id]
+    @post.user_id = current_user.id
     @post.save
-    redirect_to post_url(@post)
+    redirect_to post_path(@post.subfed)
   end
 
   def update
