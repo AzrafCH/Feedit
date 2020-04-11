@@ -17,17 +17,19 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(params[:id])
+    @subfed = Subfed.find_by(params[:id])
+
     @comment = Comment.new
     @comment.post_id = @post.id
     @comment.user_id = session[:user_id]
     @comment.save
+
   end
 
   def create
     @subfed = Subfed.find_by_id(params[:id])
     @post = Post.new(post_params)
     @post.user_id = session[:user_id]
-    @post.subfed_id = @subfed.id
     @post.save
     redirect_to post_url(@post)
   end
