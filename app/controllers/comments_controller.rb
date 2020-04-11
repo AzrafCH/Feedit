@@ -19,20 +19,18 @@ class CommentsController < ApplicationController
  end
 
  def create
-   @comment = Comment.create(comment_params)
-   @comment.user_id = current_user.id
+   @comment = Comment.new(comment_params)
+   @comment.user_id = session[:user_id]
+   @comment.post_id = params[:post_id]
 
-   if @comment.save
-     redirect_to comment_url(@comment)
-   else
-     render :index
-   end
+   @comment.save
+   redirect_to post_path (@comment.post)
  end
 
  def update
    @comment = Comment.find(params[:id])
    @comment.update(comment_params)
-   redirect_to comment_url(@comment)
+  redirect_to post_path (@comment.post)
  end
 
  def destroy
