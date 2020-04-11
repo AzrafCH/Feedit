@@ -1,6 +1,6 @@
 class SubfedsController < ApplicationController
 
-    before_action :require_logged_in, :current_user
+    before_action :require_logged_in
 
   def index
     @subfeds = Subfed.all
@@ -19,14 +19,11 @@ class SubfedsController < ApplicationController
   end
 
   def create
-    @subfed = Subfed.create(subfed_params)
+    @subfed = Subfed.new(subfed_params)
+    @subfed.user_id = session[:user_id]
+    @subfed.save
 
-    if @subfed.save
-      redirect_to subfed_url(@subfed)
-    else
-      Subfed.all
-      render :index
-    end
+    redirect_to subfed_url(@subfed)
   end
 
   def update
@@ -43,7 +40,7 @@ class SubfedsController < ApplicationController
   private
 
     def subfed_params
-      params.require(:subfed).permit(:title, :content)
+      params.require(:subfed).permit(:title, :content, :user_id)
     end
 
 end
