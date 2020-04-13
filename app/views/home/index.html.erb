@@ -8,9 +8,11 @@
   <body>
     <ul>
       <li><%= link_to "Home", root_path, class: "active" %></li>
-      <li><%= link_to "Signup", new_user_path %></li>
-      <li><%= link_to "Login", login_path %></li>
-      <li><%= link_to @user.username, users_path %></li>
+      <% if current_user %>
+        <li><%= link_to @user.username, users_path %></li>
+      <% else %>
+        <li><%= link_to "Login", login_path %></li>
+      <% end %>
     </ul>
 
     <header>
