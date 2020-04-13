@@ -8,11 +8,8 @@
   <body>
     <ul>
       <li><%= link_to "Home", root_path, class: "active" %></li>
-      <% if current_user %>
-        <li><%= link_to @user.username, users_path %></li>
-      <% else %>
-        <li><%= link_to "Login", login_path %></li>
-      <% end %>
+      <li><%= link_to "Login", login_path %></li>
+      <li><%= link_to @user.username, users_path %></li>
     </ul>
 
     <header>
@@ -21,3 +18,4 @@
 
   </body>
 </html>
+a
