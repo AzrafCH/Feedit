@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :subfeds, only: [:index, :new, :create, :edit, :update, :show, :destroy]
   patch 'subfeds/:id', to: 'subfeds#update'
 
-  resources :posts, only: [:index, :new, :create, :edit, :update, :show, :destroy]
+  resources :posts, only: [:index, :new, :create, :edit, :show, :update, :destroy]
   patch 'posts/:id', to: 'posts#update'
 
   resources :comments, only: [:create, :destroy, :edit, :update]
