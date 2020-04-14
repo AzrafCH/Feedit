@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(params[:post_id])
-    @subfed = Subfed.find_by(params[:id])
+    @subfed = Subfed.find_by(params[:subfed_id])
 
     @comment = Comment.new
     @comment.post_id = @post.id
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.save
-    redirect_to post_path(@post.subfed)
+    redirect_to post_path(@post.id)
   end
 
   def update

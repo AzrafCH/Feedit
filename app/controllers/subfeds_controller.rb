@@ -16,7 +16,6 @@ class SubfedsController < ApplicationController
 
   def show
     @subfed = Subfed.find_by_id(params[:id])
-    @subfed.posts = Post.find(params[:subfed_id])
   end
 
   def create
