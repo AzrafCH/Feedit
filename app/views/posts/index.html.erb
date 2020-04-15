@@ -1,22 +1,21 @@
-<!--<% @posts.each do |post| %>
-    <h2><%= link_to post.title, post_url(post) %></h2>
-  <% end %> -->
-
-
 <!DOCTYPE HTML>
-<% stylesheet_link_tag 'main' %>
+<html>
+<% @posts.each do |post| %>
 <Section id="main">
+<div class="container">
 <div class="col-8 col-12-medium imp-medium">
-<article class="box post">
-  <% @posts.each do |post| %>
+    <article class="box post">
   <header>
-    <h2>This will be a subfed title belonging to post</h2>
-      <p><%= link_to post.title, post_url(post) %></p>
+    <h2><%= link_to post.title %></h2>
+      <p>This will be a subfed title belonging to post</p>
   </header>
-    <h3>Summary</h3>
-  <p><% post.summary %></p>
-  <% end %>
+  <ul class="actions">
+    <li><%= link_to "Continue Reading", post_url(post), class: "button icon solid fa-file-alt"  %></li>
+  </ul>
 </article>
 </div>
-</section>
+<% end %>
+<br>
 <%= link_to "Home", users_path %> <%= link_to "Create New Post", new_post_path %>
+
+</html>

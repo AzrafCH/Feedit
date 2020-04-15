@@ -25,7 +25,7 @@
 						<nav id="nav">
 							<ul>
 								<li><%= link_to "Login", login_path %></li>
-								<li class="current"><%= link_to @user.username, users_path %></a></li>
+								<li class="current"><%= link_to @user.username, users_path %></li>
 						<!--		<li><a href="right-sidebar.html">Right Sidebar</a></li> -->
 						<!--	<li><a href="no-sidebar.html">No Sidebar</a></li> -->
 							</ul>
@@ -76,8 +76,10 @@
 											<h2>This will be a subfed title belonging to post</h2>
 											  <p>This will be a post title belonging to subfed</p>
 										</header>
-                      <h3>Summary</h3>
-										<p>This will be post sumary belonging to post</p>
+                    <ul class="actions">
+                      <li><a class="button icon solid fa-file-alt" href="#">Continue Reading</a></li>
+                      <li><a class="button alt icon solid fa-comment" href="#">33 comments</a></li>
+                    </ul>
 									</article>
 							</div>
 						</div>
@@ -111,13 +113,6 @@
 							</div>
 							<div class="col-4 col-6-medium col-12-small">
 
-								<!-- Copyright -->
-									<div id="copyright">
-										<ul class="links">
-											<li>&copy; Feddit. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-										</ul>
-									</div>
-
 							</div>
 						</div>
 					</div>
@@ -125,13 +120,7 @@
 
 		</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+
 
 	</body>
 </html>
