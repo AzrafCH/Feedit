@@ -40,34 +40,15 @@
 				<section id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.html">Feddit</a></h1>
+						<h1><%= link_to "Feddit", root_path %></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.html">Home</a></li>
-								<li>
-									<a href="#">Dropdown</a>
-									<ul>
-										<li><a href="#">Lorem ipsum dolor</a></li>
-										<li><a href="#">Magna phasellus</a></li>
-										<li><a href="#">Etiam dolore nisl</a></li>
-										<li>
-											<a href="#">Phasellus consequat</a>
-											<ul>
-												<li><a href="#">Magna phasellus</a></li>
-												<li><a href="#">Etiam dolore nisl</a></li>
-												<li><a href="#">Veroeros feugiat</a></li>
-												<li><a href="#">Nisl sed aliquam</a></li>
-												<li><a href="#">Dolore adipiscing</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Veroeros feugiat</a></li>
-									</ul>
-								</li>
-								<li class="current"><a href="left-sidebar.html">Left Sidebar</a></li>
-								<li><a href="right-sidebar.html">Right Sidebar</a></li>
-								<li><a href="no-sidebar.html">No Sidebar</a></li>
+								<li><%= link_to "Login", login_path %></li>
+								<li class="current"><%= link_to @user.username, users_path %></a></li>
+						<!--		<li><a href="right-sidebar.html">Right Sidebar</a></li> -->
+						<!--	<li><a href="no-sidebar.html">No Sidebar</a></li> -->
 							</ul>
 						</nav>
 
@@ -83,7 +64,7 @@
 									<section class="box">
 										<a href="#" class="image featured"><img src="images/pic09.jpg" alt="" /></a>
 										<header>
-											<h3>Sed etiam lorem nulla</h3>
+											<h3><%= @user.username %></h3>
 										</header>
 										<p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat veroeros lorem blandit  adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
 										<footer>
@@ -92,7 +73,7 @@
 									</section>
 									<section class="box">
 										<header>
-											<h3>Feugiat consequat</h3>
+											<h3>Subfeeds</h3>
 										</header>
 										<p>Veroeros sed amet blandit consequat veroeros lorem blandit adipiscing et feugiat sed lorem consequat feugiat lorem dolore.</p>
 										<ul class="divided">
