@@ -1,5 +1,22 @@
-<% @posts.each do |post| %>
+<!--<% @posts.each do |post| %>
     <h2><%= link_to post.title, post_url(post) %></h2>
-  <% end %>
+  <% end %> -->
 
+
+<!DOCTYPE HTML>
+<% stylesheet_link_tag 'main' %>
+<Section id="main">
+<div class="col-8 col-12-medium imp-medium">
+<article class="box post">
+  <% @posts.each do |post| %>
+  <header>
+    <h2>This will be a subfed title belonging to post</h2>
+      <p><%= link_to post.title, post_url(post) %></p>
+  </header>
+    <h3>Summary</h3>
+  <p><% post.summary %></p>
+  <% end %>
+</article>
+</div>
+</section>
 <%= link_to "Home", users_path %> <%= link_to "Create New Post", new_post_path %>
