@@ -1,5 +1,24 @@
 <!DOCTYPE HTML>
 <html>
+<body class="no-sidebar is-preload">
+  <div id="page-wrapper">
+
+    <!-- Header -->
+      <section id="header">
+
+        <!-- Logo -->
+          <h1>Feddit</h1>
+
+          <!-- Nav -->
+            <nav id="nav">
+              <ul>
+                <li class="current"><%= link_to @user.username, users_path %></li>
+                <li><%= link_to "Home", root_path %></li>
+                <li><%= link_to "Create New Post", new_post_path %></li>
+              </ul>
+            </nav>
+          </section>
+
 <% @posts.each do |post| %>
 <Section id="main">
 <div class="container">
@@ -16,6 +35,6 @@
 </div>
 <% end %>
 <br>
-<%= link_to "Home", users_path %> <%= link_to "Create New Post", new_post_path %>
+
 
 </html>

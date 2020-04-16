@@ -14,3 +14,61 @@
 <%= link_to "Back", subfeds_path %><br>
  <%= link_to "Edit Subfeed", edit_subfed_path(@subfed) %><br>
   <%= button_to "Delete Subfeed", subfed_path(@subfed), method: :delete %><br> -->
+
+  <!DOCTYPE HTML>
+    <html>
+      <body class="no-sidebar is-preload">
+        <div id="page-wrapper">
+
+          <!-- Header -->
+    				<section id="header">
+
+              <!-- Logo -->
+    						<h1><%= @subfed.title %></h1>
+
+                <!-- Nav -->
+                  <nav id="nav">
+                    <ul>
+                      <li class="current"><%= link_to @user.username, users_path %></li>
+                      <li><%= link_to "Home", root_path %></li>
+                      <li><%= link_to "Create New Post", new_post_path %></li>
+                      <li><%= link_to "Edit Subfeed", edit_subfed_path(@subfed) %></li>
+                      <li><%= button_to "Delete Subfeed", subfed_path(@subfed), method: :delete %></li>
+                    </ul>
+                  </nav>
+                </section>
+
+          <% @subfed.posts.collect do |post| %>
+          <Section id="main">
+            <div class="container">
+              <div class="col-8 col-12-medium imp-medium">
+                <article class="box post">
+                  <header>
+                    <h2><%= link_to post.title, post_path(post.id) %></h2>
+                  </header>
+                  <ul class="actions">
+                    <li><%= link_to "Continue Reading", post_url(post), class: "button icon solid fa-file-alt"  %></li>
+                  </ul>
+                </article>
+              </div>
+              <% end %>
+
+  <!-- Footer -->
+    <section id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-8 col-12-medium">
+          </div>
+          <div class="col-4 col-12-medium">
+          </div>
+          <div class="col-4 col-6-medium col-12-small">
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+</div>
+
+</body>
+  </html>
