@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def index
     @subfeds = Subfed.all
     @posts = Post.all
+    @users = User.all 
   end
 
   def new
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     return redirect_to controller: 'users', action: 'new' unless @user.save
     session[:user_id] = @user.id
-    redirect_to controller: 'home', action: 'index'
+    redirect_to controller: 'users', action: 'index'
   end
 
   def edit
