@@ -1,12 +1,61 @@
-<%= form_for @user, controller: 'users', action: 'create' do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+			<!-- Header -->
+				<section id="header">
 
-  <%= f.label :password %>
-  <%= f.text_field :password %>
+					<!-- Logo -->
+						<h1>Feddit</h1>
 
-  <%= f.submit "register" %>
-<% end %>
+            <!-- Nav -->
+              <nav id="nav">
+                <ul>
+                  <li class = "current"><%= link_to "Home", root_path %></li>
+                  <li><%= link_to "Login", login_path %></li>
+                </ul>
+              </nav>
+            </section>
+
+            <!-- Main -->
+              <section id="main">
+                <div class="container">
+                  <%= form_for @user, controller: 'users', action: 'create' do |f| %>
+                  <%= f.label :username %>
+                  <%= f.text_field :username %>
+
+                  <%= f.label :email %>
+                  <%= f.text_field :email %>
+
+                  <%= f.label :password %>
+                  <%= f.text_field :password %>
+
+                  <%= f.submit "register" %>
+                  <% end %>
+                </div>
+              </section>
+
+              <!-- Footer -->
+                <section id="footer">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-8 col-12-medium">
+                      </div>
+                      <div class="col-4 col-12-medium">
+                      </div>
+                      <div class="col-4 col-6-medium col-12-small">
+
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+              </div>
+              </body>
+              </html>

@@ -1,10 +1,58 @@
-<%= form_for @user, url: login_path, method: :post do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
 
-  <%= f.label :password %>
-  <%= f.text_field :password %>
+			<!-- Header -->
+				<section id="header">
 
-  <%= f.submit "Log In" %>
-  Or <%= link_to(controller: 'users', action: 'new') { 'Sign Up' } %>
-<% end %> 
+					<!-- Logo -->
+						<h1>Feddit</h1>
+
+            <!-- Nav -->
+              <nav id="nav">
+                <ul>
+                  <li><%= link_to "Home", root_path %></li>
+                  <li class="current"><%= link_to(controller: 'users', action: 'new') { 'Sign Up' } %></li>
+                </ul>
+              </nav>
+            </section>
+
+            <!-- Main -->
+              <section id="main">
+                <div class="container">
+                  <%= form_for @user, url: login_path, method: :post do |f| %>
+                  <%= f.label :username %>
+                  <%= f.text_field :username %>
+
+                  <%= f.label :password %>
+                  <%= f.text_field :password %>
+
+                  <%= f.submit "Log In" %>
+                  <% end %>
+                </div>
+              </section>
+
+              <!-- Footer -->
+                <section id="footer">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-8 col-12-medium">
+                      </div>
+                      <div class="col-4 col-12-medium">
+                      </div>
+                      <div class="col-4 col-6-medium col-12-small">
+
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+              </div>
+              </body>
+              </html>
