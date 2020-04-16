@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
   def index
+    @subfeds = Subfed.all
+    @posts = Post.all
   end
 
   def new

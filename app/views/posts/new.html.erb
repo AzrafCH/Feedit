@@ -1,15 +1,62 @@
-<h1>Create a new Post</h1>
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
 
-<%= form_for @post do |f| %>
+			<!-- Header -->
+				<section id="header">
 
-  <%= f.label "Title: " %><br>
-  <%= f.text_field :title %><br>
+					<!-- Logo -->
+						<h1>Feddit</h1>
 
-  <%= f.label "Summary: " %><br>
-  <%= f.text_area :summary %><br>
+            <!-- Nav -->
+              <nav id="nav">
+                <ul>
+                  <li><%= link_to "Back", subfeds_path %></li>
+                  <li class="current"><%= link_to @user.username, users_path %></li>
+                </ul>
+              </nav>
+            </section>
 
-  <%= f.label :subfed_id, "Subfeed" %><br>
-  <%= f.collection_select :subfed_id, @subfeds, :id, :title %><br>
+            <!-- Main -->
+              <section id="main">
+                <div class="container">
+                  <%= form_for @post do |f| %>
 
-  <%= f.submit "Create Post" %>
-<% end %>
+                  <%= f.label "Title: " %><br>
+                  <%= f.text_field :title %><br>
+
+                  <%= f.label "Summary: " %><br>
+                  <%= f.text_area :summary %><br>
+
+                  <%= f.label :subfed_id, "Subfeed" %><br>
+                  <%= f.collection_select :subfed_id, @subfeds, :id, :title %><br>
+
+                  <%= f.submit "Create Post" %>
+                  <% end %>
+                </div>
+              </section>
+
+              <!-- Footer -->
+                <section id="footer">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-8 col-12-medium">
+                      </div>
+                      <div class="col-4 col-12-medium">
+                      </div>
+                      <div class="col-4 col-6-medium col-12-small">
+
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+            </div>
+          </body>
+        </html>

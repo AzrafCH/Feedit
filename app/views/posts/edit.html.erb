@@ -1,26 +1,59 @@
-<h1>Edit your Post</h1>
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
 
-<!--<%= form_tag posts_path(@post), method: "put" do %>
-<%= form_errors_for @post %>
+			<!-- Header -->
+				<section id="header">
 
-  <label>Post Title:</label><br>
-  <%= text_field_tag  :'post[title]' %><br>
+					<!-- Logo -->
+						<h1><%= @post.title %></h1>
 
+            <!-- Nav -->
+              <nav id="nav">
+                <ul>
+                  <li><%= link_to "Back", posts_path(@post) %></li>
+                  <li class="current"><%= link_to @user.username, users_path %></li>
+                </ul>
+              </nav>
+            </section>
 
-  <label>Post Summary:</label><br>
-  <%= text_field_tag  :'post[summary]' %><br>
+            <!-- Main -->
+      				<section id="main">
+      					<div class="container">
+                  <%= form_for(@post) do |f| %>
 
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <%= submit_tag "Update" %>
-<% end %> -->
+                  <label>Post Title:</label><br>
+                  <%= f.text_field :title %><br>
 
-<%= form_for(@post) do |f| %>
+                  <label>Summary:</label><br>
+                  <%= f.text_area :summary %><br>
 
-  <label>Post Title:</label><br>
-  <%= f.text_field :title %><br>
+                  <%= f.submit "Update" %>
+                  <% end %>
+                </div>
+              </section>
 
-  <label>Summary:</label><br>
-  <%= f.text_area :summary %><br>
+              <!-- Footer -->
+                <section id="footer">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-8 col-12-medium">
+                      </div>
+                      <div class="col-4 col-12-medium">
+                      </div>
+                      <div class="col-4 col-6-medium col-12-small">
 
-  <%= f.submit "Update" %>
-<% end %>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+            </div>
+          </body>
+        </html>
