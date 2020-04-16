@@ -1,4 +1,15 @@
 class User < ApplicationRecord
+  validates :username, presence: true
+  validates :username, uniqueness: true
+  validates :username, length: { minimum: 5 }
+
+  validates :email, presence: true
+  validates :email, uniqueness: true
+  validates_format_of :email, :with => /@/
+
+  validates :password, presence: true
+  validates :password, length: { minimum: 1 }
+
   has_secure_password
   has_many :settings
   accepts_nested_attributes_for :settings
