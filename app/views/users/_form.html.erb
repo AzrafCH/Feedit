@@ -1,27 +1,75 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
 
-<%= form_for @user do |f| %>
-<div>
-  <%= f.label :email %>
-  <%= f.text_field :email %><br>
+			<!-- Header -->
+				<section id="header">
 
-  <%= f.label :password %>
-  <%= f.text_field :password %>
-</div>
-    <h2>Settings</h2>
+					<!-- Logo -->
+						<h1><%= @user.username %></h1>
 
-  <%= f.fields_for :settings do |set| %>
-    <div>
-    <%= set.label :bio %>
-    <%= set.text_area :bio %><br>
+            <!-- Nav -->
+              <nav id="nav">
+                <ul>
+                  <li><%= link_to "Back", users_path %></li>
+                  <li class="current"><%= link_to @user.username, users_path %></li>
+                </ul>
+              </nav>
+            </section>
+
+            <!-- Main -->
+              <section id="main">
+                <div class="container">
+                  <%= form_for @user do |f| %>
+                  <div>
+                    <%= f.label :email %>
+                    <%= f.text_field :email %><br>
+
+                    <%= f.label :password %>
+                    <%= f.text_field :password %>
+                  </div><br>
+
+                  <h3>Settings</h3><br>
+                  <%= f.fields_for :settings do |set| %>
+                  <div>
+                    <%= set.label :bio %>
+                    <%= set.text_area :bio %><br>
 
 
-    <%= set.label :age %>
-    <%= set.text_field :age %><br>
+                    <%= set.label :age %>
+                    <%= set.text_field :age %><br>
 
 
-    <%= set.label :location %>
-    <%= set.text_field :location %><br>
-    </div>
-  <% end %>
-  <%= f.submit "Update!"%>
-<% end %>
+                    <%= set.label :location %>
+                   <%= set.text_field :location %><br>
+                 </div>
+                 <% end %>
+                 <%= f.submit "Update!"%>
+                 <% end %>
+               </div>
+             </section>
+
+             <!-- Footer -->
+               <section id="footer">
+                 <div class="container">
+                   <div class="row">
+                     <div class="col-8 col-12-medium">
+                     </div>
+                     <div class="col-4 col-12-medium">
+                     </div>
+                     <div class="col-4 col-6-medium col-12-small">
+
+                     </div>
+                   </div>
+                 </div>
+               </section>
+
+           </div>
+         </body>
+       </html>
