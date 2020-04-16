@@ -35,7 +35,7 @@
                   <%= f.text_area :summary %><br>
 
                   <%= f.label :subfed_id, "Subfeed" %><br>
-                  <%= f.collection_select :subfed_id, @subfeds, :id, :title %><br>
+                  <%= f.collection_select :subfed_id, @subfeds, :id, :title, {include_blank: "---", prompt: true } %><br>
 
                   <%= f.submit "Create Post" %>
                   <% end %>
