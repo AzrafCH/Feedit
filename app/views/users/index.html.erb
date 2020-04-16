@@ -45,14 +45,17 @@
 								<!-- Login Sidebar -->
 									<section class="box">
 										<header>
-											<h3><%= @user.username %></h3>
+											<% @users.each do |user| %>
+											<h3><%= user.username %></h3>
 										</header>
 											<ul class="divided">
-												<% @user.settings.each do |setting| %>
-													<li><%= setting.bio %></li>
-													<li><%= setting.age %></li>
-													<li><%= setting.location %></li>
+												<% user.settings.build do |user| %>
+													<li><%= user.bio %></li>
+													<li><%= user.age %></li>
+													<li><%= user.location %></li>
+													<% end %>
 												</ul>
+												<% end %>
 										<footer>
 										</footer>
 									</section>

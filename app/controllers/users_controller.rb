@@ -3,10 +3,12 @@ class UsersController < ApplicationController
   def index
     @subfeds = Subfed.all
     @posts = Post.all
-    @users = User.all 
+    @users = User.all
   end
 
   def new
+    @user = User.new
+    @user.settings.build(age: 'How old are you?', bio: 'Tell me about yourself...', location: 'Where do you live?')
   end
 
   def create
