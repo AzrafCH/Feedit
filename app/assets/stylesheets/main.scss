@@ -119,6 +119,10 @@
 
 	}
 
+	.field_with_errors input[type='text']{
+		border: 2px solid red
+	}
+
 	body, input, textarea, select {
 		font-family: 'Source Sans Pro';
 		font-weight: 300;
