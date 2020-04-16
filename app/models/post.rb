@@ -1,4 +1,9 @@
 class Post < ApplicationRecord
+  validates :title, presence: true
+  validates :summary, presence: true
+  validates :subfed_id, presence: false
+
+
   belongs_to :subfed
   belongs_to :user
 

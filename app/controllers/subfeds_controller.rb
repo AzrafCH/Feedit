@@ -20,9 +20,13 @@ class SubfedsController < ApplicationController
 
   def create
     @subfed = Subfed.new(subfed_params)
-    @subfed.save
 
-    redirect_to subfed_url(@subfed)
+    if @subfed.valid?
+      @subfed.save
+      redirect_to subfed_url(@subfed)
+    else
+      render 'new'
+    end
   end
 
   def update
