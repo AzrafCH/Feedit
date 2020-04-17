@@ -1,16 +1,31 @@
 # Feedit
 Educational Project in which i build a Reddit Clone.
 
--- display nested attributes, create container view in profile page
+plan of attack -- Users
 
--- add validations for user signup/login, editing and creating subfeeds
+Display nested params for settings
 
--- build partials/layouts for page to source from user home page
+provide validation messages
 
--- build comments with nested routing to posts
+Create authentication through email for omniauth
 
--- build upvote feature
+Create Omniauth
 
--- build omniauth for google/facebook
+-- Subfeds
 
--- build a way to save title and only edit summary in posts 
+create validation messages
+
+-- Posts
+
+fix validation error for collection select
+
+add subfed link to post div
+
+create validation messages for post
+
+-- Comments
+create validations for comments
+
+only allow creation of one instance for comments upon submittal
+
+only allow creation of one instance for comments per post
