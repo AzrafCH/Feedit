@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by(params[:id])
+    @post = Post.find_by(id: params[:id])
     @subfed = Subfed.find_by(params[:subfed_id])
 
     @comment = Comment.new
