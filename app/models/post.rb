@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   validates :title, presence: true
   validates :summary, presence: true
-  validates :subfed_id, presence: false
+  validates_associated :subfeds
 
 
   belongs_to :subfed
