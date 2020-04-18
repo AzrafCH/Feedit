@@ -11,6 +11,8 @@ Create authentication through email for omniauth
 
 Create Omniauth
 
+fix migration to change password to password_digest
+
 -- Subfeds
 
 create validation messages
