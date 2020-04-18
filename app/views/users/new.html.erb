@@ -10,6 +10,11 @@
 
 			<!-- Header -->
 				<section id="header">
+					<% if @user.errors.any? %>
+					<% @user.errors.full_messages.each do |msg| %>
+						<p><%= msg %></p>
+					<% end %>
+					<% end %>
 
 					<!-- Logo -->
 						<h1>Feddit</h1>
@@ -25,16 +30,28 @@
 
             <!-- Main -->
               <section id="main">
+								<div class= "container">
+									<% if @user.errors.any? %>
+												<% @user.errors.each do |message| %>
+												<ul>
+													<li><%= message %></li>
+												</ul>
+												<% end %>
+											<% end %>
+								</div>
                 <div class="container">
+
+
                   <%= form_for @user, controller: 'users', action: 'create' do |f| %>
+
                   <%= f.label :username %>
                   <%= f.text_field :username %><br>
 
                   <%= f.label :email %>
                   <%= f.text_field :email %><br>
 
-                  <%= f.label :password %>
-                  <%= f.text_field :password %><br>
+                  <%= f.label "Password" %>
+                  <%= f.text_field :password_digest %><br>
 
 									<h3>Settings</h3><br>
                   <%= f.fields_for :settings do |set| %>

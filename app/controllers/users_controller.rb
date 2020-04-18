@@ -13,7 +13,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    @user.settings = params[:user][:settings]
     session[:user_id] = @user.id
     return redirect_to controller: 'users', action: 'new' unless @user.save
     redirect_to controller: 'users', action: 'index'
@@ -34,6 +33,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :email, :user_id, :settings => [:bio, :location, :age ])
+    params.require(:user).permit(:username, :password_digest, :email, :user_id, :settings => [:bio, :location, :age ])
   end
 end
