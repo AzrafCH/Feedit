@@ -34,7 +34,13 @@
 			     							<% end %>
 											<% end %>
                   <%= form_for @user, url: login_path, method: :post do |f| %>
-
+									<% if @user.errors.any? %>
+											<ul>
+												<% @user.errors.full_messages.each do |message| %>
+													<li class="font_color" ><%= message %></li>
+												<% end %>
+											</ul>
+											<% end %>
                   <%= f.label :username %>
                   <%= f.text_field :username %><br>
 
