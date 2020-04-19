@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @user.settings.build(age: 'How old are you?', bio: 'Tell me about yourself...', location: 'Where do you live?')
   end
 
   def create
@@ -21,11 +20,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @user.settings.build(age: 'How old are you?', bio: 'Tell me about yourself...', location: 'Where do you live?')
+    @user.settings.build(bio: "Tell me about yourself...")
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     @user.update(user_params)
     redirect_to users_path(@user)
   end
@@ -34,6 +33,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :email, :user_id, :settings_attributes => [:bio, :location, :age ])
+    params.require(:user).permit(:username, :password, :email, :user_id, :settings_attributes => [:bio, :location, :age, :id ])
   end
 end

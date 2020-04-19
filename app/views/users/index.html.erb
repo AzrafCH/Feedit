@@ -47,10 +47,10 @@
 											<h3><%= @user.username %></h3>
 										</header>
 											<ul class="divided">
-												<% @user.settings.build do |user| %>
-													<li>Bio: <%= user.bio.to_s%></li>
-													<li>Age: <%= user.age.to_s %></li>
-													<li>Location: <%= user.location.to_s %></li>
+												<% @user.settings.each do |user| %>
+													<li>Bio: <%= user.bio%></li>
+													<li>Age: <%= user.age%></li>
+													<li>Location: <%= user.location %></li>
 													<% end %>
 												</ul>
 										<footer>
