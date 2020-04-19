@@ -41,7 +41,7 @@
 
                   <%= f.label :subfed_id, "Subfeed" %><br>
 									<% unless @subfeds.nil? %>
-                  <%= f.collection_select :subfed_id, @subfeds, :id, :title, { prompt: true } %><br>
+                  <%= f.collection_select :subfed_id, @subfeds, :id, :title, { prompt: true, required: true } %><br>
 									<% end %>
 
                   <%= f.submit "Create Post" %>

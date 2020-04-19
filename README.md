@@ -7,10 +7,6 @@ Create authentication through email for omniauth
 
 Create Omniauth
 
--- Posts
-
-add subfed link to post div
-
 -- Comments
 create validations for comments
 

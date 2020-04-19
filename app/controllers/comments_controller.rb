@@ -8,8 +8,7 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
-    @post = Post.find_by(id: params[:id])
-    @user = User.find_by(id: params[:id])
+    @posts = Post.all
   end
 
  def edit
@@ -21,15 +20,13 @@ class CommentsController < ApplicationController
  end
 
  def create
-   @user = User.find_by(params[:id])
-   @post = Post.find_by(params[:id])
-
+   @user = User.find_by(id: params[:id])
+   @post = Post.find_by(id: params[:id])
+   @posts = Post.all
    @comment = Comment.create(comment_params)
-   @comment.user_id = @user.id
-   @comment.post_id = @post.id
-
+   @comment.user_id = current_user.id
    if @comment.save
-     redirect_to post_path (@comment.post)
+     redirect_to post_path(@comment)
    else
      render 'new'
    end

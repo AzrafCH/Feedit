@@ -1,9 +1,17 @@
-<h3>Post a Comment</h3>
 
-<%= form_for  @comment do |f| %>
-  <br>
-  <p><%= f.text_area :content %></p>
 
-    <%= f.hidden_field :user_id %>
-    <%= f.submit 'Submit' %>
-<% end %>
+      <section id="main">
+        <div class="container">
+            <h3>Post a Comment</h3>
+            <%= form_for  @comment do |f| %>
+
+            <%= f.text_area :content %><br>
+
+            <%= f.hidden_field :user_id %>
+
+            <%= f.hidden_field :post_id %>
+
+            <%= f.submit 'Submit' %>
+            <% end %>
+          </div>
+        </section>

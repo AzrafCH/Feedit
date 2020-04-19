@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :new, :create, :edit, :show, :update, :destroy]
   patch 'posts/:id', to: 'posts#update'
 
-  resources :comments, only: [:create, :destroy, :edit, :update]
+  resources :comments, only: [:new, :create, :destroy, :edit, :update, :index, :show]
   patch 'comments/:id', to: 'comments#update'
 
 

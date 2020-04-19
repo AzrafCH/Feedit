@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     @subfed = Subfed.find_by(params[:subfed_id])
 
     @comment = Comment.new
-    @comment.post_id = @post.id
+    @comment.post_id = @post
     @comment.user_id = session[:user_id]
     @comment.save
   end
@@ -30,7 +30,6 @@ class PostsController < ApplicationController
     @subfeds = Subfed.all
     @post = Post.create(post_params)
     @post.user_id = current_user.id
-    @post.subfed_id = @subfed.id
     if @post.save
       redirect_to post_path(@post.id)
     else
