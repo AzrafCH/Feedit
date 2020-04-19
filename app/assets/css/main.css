@@ -84,6 +84,10 @@ input, select, textarea {
 	text-align: center;
 }
 
+.error_explanation input[type='text'] {
+	border: 2px solid red;
+}
+
 /* Basic */
 
 	html {

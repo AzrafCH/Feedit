@@ -26,12 +26,17 @@
 						<!-- errors -->
 
 
-
             <!-- Main -->
 							<section id="main">
                 <div class="container">
-                  <%= form_for @user, controller: 'users', action: 'create' do |f| %>
-
+									<%= form_for @user, controller: 'users', action: 'create' do |f| %>
+									<% if @user.errors.any? %>
+											<ul>
+												<% @user.errors.full_messages.each do |message| %>
+													<li class="font_color" ><%= message %></li>
+												<% end %>
+											</ul>
+									<% end %>
                   <%= f.label :username %>
                   <%= f.text_field :username %><br>
 
@@ -41,27 +46,10 @@
                   <%= f.label :password %>
                   <%= f.password_field :password %><br>
 
-									<h3>Settings</h3><br>
-                  <%= f.fields_for :settings do |set| %>
-                  <div>
-                    <%= set.label :bio %>
-                    <%= set.text_area :bio %><br>
-
-
-                    <%= set.label :age %>
-                    <%= set.text_field :age %><br>
-
-
-                    <%= set.label :location %>
-                   <%= set.text_field :location %><br>
-                 </div>
-                 <% end %>
                   <%= f.submit "register" %>
                   <% end %>
-
-
-                </div>
-              </section>
+							</div>
+            </section>
 
               <!-- Footer -->
                 <section id="footer">

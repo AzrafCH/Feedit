@@ -9,4 +9,8 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: :user_id, class_name: "Comment", dependent: :destroy
   has_many :posts, through: :comments
 
+  validates :username, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
+
 end

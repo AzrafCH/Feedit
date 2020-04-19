@@ -3,8 +3,6 @@ Educational Project in which i build a Reddit Clone.
 
 plan of attack -- Users
 
-Display nested params for settings
-
 provide validation messages
 
 Create authentication through email for omniauth
