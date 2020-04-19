@@ -27,11 +27,10 @@ class PostsController < ApplicationController
 
   def create
     @subfed = Subfed.find_by_id(params[:id])
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    @post = Post.create(post_params)
 
-    if @post.valid?
-      @post.save
+    if @post.save
+      @post.user_id = current_user.id
       redirect_to post_path(@post.id)
     else
       render 'new'

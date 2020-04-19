@@ -8,8 +8,8 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
-    @post = Post.find_by(params[:id])
-    @user = User.find_by(params[:id])
+    @post = Post.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
  def edit
@@ -24,12 +24,15 @@ class CommentsController < ApplicationController
    @user = User.find_by(params[:id])
    @post = Post.find_by(params[:id])
 
-   @comment = Comment.new(comment_params)
+   @comment = Comment.create(comment_params)
    @comment.user_id = @user.id
    @comment.post_id = @post.id
 
-   @comment.save
-   redirect_to post_path (@comment.post)
+   if @comment.save
+     redirect_to post_path (@comment.post)
+   else
+     render 'new'
+   end
  end
 
  def update

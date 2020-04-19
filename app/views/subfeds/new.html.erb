@@ -31,7 +31,7 @@
                   <%= form_for @subfed do |f| %>
 									<% if @subfed.errors.any? %>
 										<% @subfed.errors.full_messages.each do |message| %>
-											<li class="font_color" ><%= message %></li>
+											<p class="font_color" ><%= message %></p>
 										<% end %>
 									<% end %>
 
