@@ -40,7 +40,9 @@
                   <%= f.text_area :summary %><br>
 
                   <%= f.label :subfed_id, "Subfeed" %><br>
+									<% unless @subfeds.nil? %>
                   <%= f.collection_select :subfed_id, @subfeds, :id, :title, { prompt: true } %><br>
+									<% end %>
 
                   <%= f.submit "Create Post" %>
                   <% end %>

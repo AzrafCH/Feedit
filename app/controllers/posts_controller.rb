@@ -27,6 +27,7 @@ class PostsController < ApplicationController
 
   def create
     @subfed = Subfed.find_by_id(params[:id])
+    @subfeds = Subfed.all
     @post = Post.create(post_params)
 
     if @post.save

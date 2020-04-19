@@ -21,3 +21,7 @@ create validations for comments
 only allow creation of one instance for comments upon submittal
 
 only allow creation of one instance for comments per post
+
+--others
+build scope methods
+clean up code
