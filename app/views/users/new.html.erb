@@ -28,20 +28,21 @@
               </nav>
             </section>
 
+						<!-- errors -->
+						<section id="main">
+							<div class="field_with_errors">
+						<% if @user.errors.any? %>
+							<ul>
+								<% @user.errors.full_messages.each do |message| %>
+									<li><%= message %></li>
+								<% end %>
+							</ul>
+						<% end %>
+						</div>
+
             <!-- Main -->
-              <section id="main">
-								<div class= "container">
-									<% if @user.errors.any? %>
-												<% @user.errors.each do |message| %>
-												<ul>
-													<li><%= message %></li>
-												</ul>
-												<% end %>
-											<% end %>
-								</div>
+
                 <div class="container">
-
-
                   <%= form_for @user, controller: 'users', action: 'create' do |f| %>
 
                   <%= f.label :username %>
@@ -70,6 +71,8 @@
                  <% end %>
                   <%= f.submit "register" %>
                   <% end %>
+
+
                 </div>
               </section>
 
