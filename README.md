@@ -11,9 +11,6 @@ Create authentication through email for omniauth
 
 Create Omniauth
 
-fix migration to change password to password_digest
-
-
 -- Posts
 
 fix validation error for collection select
