@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.settings.build(bio: "Tell us about you!")
   end
 
   def create
@@ -22,7 +23,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @user.settings.build(bio: "Tell me about yourself...")
+    if @user.settings == false
+      @user.settings.build(bio: "Tell us about you!")
+    end
   end
 
   def update
@@ -35,6 +38,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :email, :user_id, :settings_attributes => [:bio, :location, :age, :id ])
+    params.require(:user).permit(:username, :password, :email, :user_id, :settings_attributes => [:bio, :location, :age, :id, :_destroy ])
   end
 end

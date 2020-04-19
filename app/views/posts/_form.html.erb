@@ -1,0 +1,13 @@
+<%= form_for @post do |f| %>
+
+<%= f.label "Title: " %><br>
+<%= f.text_field :title %><br>
+
+<%= f.label "Summary: " %><br>
+<%= f.text_area :summary %><br>
+
+<%= f.label :subfed_id, "Subfeed" %><br>
+<%= f.collection_select :subfed_id, @subfeds, :id, :title, { prompt: true } %><br>
+
+<%= f.submit "Create Post" %>
+<% end %>
