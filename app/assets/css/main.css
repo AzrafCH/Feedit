@@ -81,6 +81,7 @@ input, select, textarea {
 .font_color {
 	font-weight: bold;
 	color: red;
+	text-align: center;
 }
 
 /* Basic */
