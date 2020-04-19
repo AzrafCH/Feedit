@@ -29,9 +29,9 @@ class PostsController < ApplicationController
     @subfed = Subfed.find_by_id(params[:id])
     @subfeds = Subfed.all
     @post = Post.create(post_params)
-
+    @post.user_id = current_user.id
+    @post.subfed_id = @subfed.id
     if @post.save
-      @post.user_id = current_user.id
       redirect_to post_path(@post.id)
     else
       render 'new'
