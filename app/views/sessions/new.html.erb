@@ -33,6 +33,9 @@
 												</ul>
 			     							<% end %>
 											<% end %>
+
+									<%= link_to('Log in with Facebook!', '/auth/facebook') %>
+
                   <%= form_for @user, url: login_path, method: :post do |f| %>
 									<% if @user.errors.any? %>
 											<ul>

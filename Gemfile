@@ -21,6 +21,12 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'omniauth'
+
+gem 'omniauth-facebook'
+
+gem 'dotenv-rails'
+
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # Use jquery as the JavaScript library
