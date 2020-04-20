@@ -1,5 +1,5 @@
 # Feedit
-Educational Project in which i build a Reddit Clone.
+Educational Project in which i build a Reddit Clone LITE.
 
 plan of attack -- Users
 
