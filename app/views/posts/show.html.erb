@@ -52,12 +52,11 @@
 								<article class="box post">
 									<header>
 										<h3 class="comment">Created By: <%= comment.user.username %></h3>
-										<p class="comment"><%= comment.content %></p><br>
 									</header>
+									<p class="comment"><%= comment.content %></p><br>
 								</article>
 							</div><br>
 						<% end %>
-					<%# render partial: 'posts/comment', collection: @post.comments.reverse %>
 				</section>
 
 			<!-- Footer -->

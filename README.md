@@ -6,9 +6,7 @@ plan of attack -- Users
 Create Omniauth -- I think it works? -- localhost refuses to connect
 
 -- Comments
-only allow creation of one instance for comments upon submittal
-
-only allow creation of one instance for comments per post
+add edit and delete
 
 --others
 build scope methods
