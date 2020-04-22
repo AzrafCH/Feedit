@@ -47,13 +47,23 @@
 							</article>
               <%= render partial: 'comments/form' %>
 					</div>
+					<%# render partial: 'posts/comment', collection: @post.comments.reverse %>
 				</section>
 
 			<!-- Footer -->
 				<section id="footer">
 					<div class="container">
-						<% render partial: 'posts/comment', collection: @post.comments.reverse %>
 						<div class="row">
+							<% @post.comments.each do |comment| %>
+							<div class="container">
+										<article class="box post">
+											<header>
+												<p>Created By: <%= comment.user.username %></p>
+												<h2><%= comment.content %></h2><br>
+											</header>
+										</article>
+									</div>
+								<% end %>
 							<div class="col-8 col-12-medium">
 							</div>
 							<div class="col-4 col-12-medium">

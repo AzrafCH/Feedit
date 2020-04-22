@@ -6,8 +6,6 @@ plan of attack -- Users
 Create Omniauth -- I think it works? -- localhost refuses to connect
 
 -- Comments
-create validations for comments
-
 only allow creation of one instance for comments upon submittal
 
 only allow creation of one instance for comments per post

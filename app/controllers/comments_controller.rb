@@ -18,7 +18,6 @@ class CommentsController < ApplicationController
    else
      render 'new'
    end
-   byebug
  end
 
  def update
