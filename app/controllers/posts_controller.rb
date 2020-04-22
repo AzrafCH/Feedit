@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-    before_action :require_logged_in, :logged_in_user
+    before_action :require_logged_in, :current_user
 
   def index
     @posts = Post.all
