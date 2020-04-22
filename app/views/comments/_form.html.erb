@@ -7,9 +7,7 @@
 
             <%= f.text_area :content %><br>
 
-            <%= f.hidden_field :user_id %>
-
-            <%= f.hidden_field :post_id %>
+            <%= f.collection_select :post_id, @posts, :id, :title,  { prompt: true, required: true } %>
 
             <%= f.submit 'Submit' %>
             <% end %>
