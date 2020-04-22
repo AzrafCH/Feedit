@@ -1,15 +1,11 @@
+<section id="main">
+  <div class="container">
+    <h3>Post a Comment</h3>
+      <%= form_for  ([@post, @comment]) do |f| %>
 
+        <%= f.text_area :content %><br>
 
-      <section id="main">
-        <div class="container">
-            <h3>Post a Comment</h3>
-            <%= form_for  @comment do |f| %>
-
-            <%= f.text_area :content %><br>
-
-            <%= f.collection_select :post_id, @posts, :id, :title,  { prompt: true, required: true } %>
-
-            <%= f.submit 'Submit' %>
-            <% end %>
-          </div>
-        </section>
+        <%= f.submit 'Submit' %>
+      <% end %>
+  </div>
+</section>

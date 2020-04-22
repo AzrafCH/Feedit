@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     @subfed = Subfed.find_by(params[:subfed_id])
 
     @comment = Comment.new
-    @comment.post_id = @post
+    @comment.post_id = @post.id
     @comment.user_id = session[:user_id]
     @comment.save
   end

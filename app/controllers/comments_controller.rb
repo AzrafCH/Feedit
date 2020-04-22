@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
-
-  before_action :require_logged_in
+    before_action :require_logged_in, :set_comment, only: [:show, :edit, :update, :destroy]
 
   def index
     @comments = Comment.all
@@ -8,28 +7,18 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
-    @posts = Post.all
   end
 
- def edit
-   @comment = Comment.find(params[:id])
- end
-
- def show
-   @comment = Comment.find(params[:id])
- end
-
  def create
-   @user = User.find_by(id: params[:id])
-   @post = Post.find_by(id: params[:id])
-   @posts = Post.all
-   @comment = Comment.create(comment_params)
+   @comment = Comment.new(comment_params)
+   @comment.post_id = params[:post_id]
    @comment.user_id = current_user.id
    if @comment.save
-     redirect_to post_path(@comment)
+     redirect_to post_path(@comment.post)
    else
      render 'new'
    end
+   byebug
  end
 
  def update
@@ -44,6 +33,9 @@ class CommentsController < ApplicationController
  end
 
   private
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
   def comment_params
     params.require(:comment).permit(:content, :post_id, :user_id)
