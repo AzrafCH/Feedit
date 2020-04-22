@@ -88,6 +88,16 @@ input, select, textarea {
 	border: 2px solid red;
 }
 
+/* comment */
+
+.comment {
+	font-weight: normal;
+	color: black;
+	font-family: 'Source Sans Pro';
+	font-size: 12pt;
+	text-align: left;
+}
+
 /* Basic */
 
 	html {
