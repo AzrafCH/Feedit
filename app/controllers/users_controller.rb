@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :current_user
+
   def index
     @subfeds = Subfed.all
     @posts = Post.all

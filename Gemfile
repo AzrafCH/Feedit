@@ -20,15 +20,18 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+# for localhost startup
 gem 'thin'
-
+#for authorization through a different establishment
 gem 'omniauth'
-
+#for authentication from facebook
 gem 'omniauth-facebook'
-
+#for a gemfile to host the id and key for facebook
 gem 'dotenv-rails'
-
+#for fake seed information
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+#for authorization
+gem 'cancancan'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

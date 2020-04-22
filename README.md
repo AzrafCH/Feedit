@@ -3,8 +3,6 @@ Educational Project in which i build a Reddit Clone LITE.
 
 plan of attack -- Users
 
-Create authentication through email for omniauth -- I think it works?
-
 Create Omniauth -- I think it works? -- localhost refuses to connect
 
 -- Comments

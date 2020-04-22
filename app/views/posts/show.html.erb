@@ -54,10 +54,12 @@
 								  <%= @post.summary %>
 								</p>
 								<section>
+									<% if @post.user == @user %>
                   <ul class="actions">
                     <li><%= link_to "Edit Post", edit_post_path(@post), class: "button icon solid fa-file-alt"  %></li>
                     <li><%= button_to "Delete Post", post_path(@post), class: "button icon solid fa-file-alt", method: :delete %></li>
                   </ul>
+									<% end %>
 								</section>
 							</article>
               <%= render partial: 'comments/form' %>

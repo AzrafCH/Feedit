@@ -3,11 +3,11 @@ class ApplicationController < ActionController::Base
   before_action :current_user
 
   def current_user
-    @user ||= User.find(session[:user_id]) if session[:user_id]
+    @user = User.find_by(id: session[:user_id]) if session[:user_id].present?
   end
 
   def logged_in?
-    current_user.id != nil
+    !current_user.nil?
   end
 
   def require_logged_in

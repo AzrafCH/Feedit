@@ -26,13 +26,7 @@
             <!-- Main -->
               <section id="main">
                 <div class="container">
-									<% if @user.errors.any? %>
-			     							<% @user.errors.full_messages.each do |message| %>
-												<ul>
-			       							<li><%= message %></li>
-												</ul>
-			     							<% end %>
-											<% end %>
+
 
 									<%= link_to('Log in with Facebook!', '/auth/facebook') %>
 
