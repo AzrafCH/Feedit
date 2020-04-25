@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def index
     @subfeds = Subfed.all
+    @recent_subfeds = Subfed.all.recent(10)
+    @recent_posts = Post.all.recent(10)
     @posts = Post.all
     @users = User.all
   end

@@ -63,7 +63,7 @@
 										</header>
 										<p>Choose A Category</p>
 										<ul class="divided">
-                      <% @subfeds.each do |subfeed| %>
+                      <% @recent_subfeds.each do |subfeed| %>
                           <li><%= link_to subfeed.title, subfed_url(subfeed) %></li>
                       <% end %>
 										</ul>
@@ -77,7 +77,7 @@
 
 								<!-- Content -->
 								<div class="col-8 col-12-medium imp-medium">
-								<% @posts.each do |post| %>
+								<% @recent_posts.each do |post| %>
 								<Section id="main">
 								<div class="container">
 								<div class="col-8 col-12-medium imp-medium">
