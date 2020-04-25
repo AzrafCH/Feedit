@@ -3,6 +3,7 @@ class SubfedsController < ApplicationController
 
   def index
     @subfeds = Subfed.all
+    @recent_subfeds = Subfed.all.recent(10)
   end
 
   def new
