@@ -17,7 +17,7 @@ class User < ApplicationRecord
   validates :password, presence: true
 
   def self.create_by_omniauth(auth)
-    @user = User.find_or_create_by(uid: auth['uid'], provider: auth['provider'])
+    @user = User.find_or_create_by(id: auth['uid'], provider: auth['provider'])
     @user.email = auth[:info][:email]
     @user.password = SecureRandom.hex
     @user.username = auth['info']['username']
