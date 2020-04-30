@@ -26,13 +26,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @subfed = Subfed.find_by_id(params[:id])
-    @subfeds = Subfed.all
-    @post = Post.create(post_params)
-    @post.user_id = current_user.id
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to post_path(@post.id)
     else
+      @subfeds = Subfed.all
       render 'new'
     end
   end
