@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :require_logged_in, :current_user
+    before_action :require_logged_in, :current_user, :authorized 
 
   def index
     @posts = Post.all
