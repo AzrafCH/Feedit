@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         u.username = auth['info']['name']
         u.email = auth['info']['email']
         u.password = auth['info']['password']
-      end 
+      end
       @user.save
       session[:user_id] = @user.id
       redirect_to users_path(@user.id)
@@ -30,9 +30,9 @@ class SessionsController < ApplicationController
     redirect_to '/'
   end
 
-  private 
+  private
 
-  def auth 
+  def auth
     request.env['omniauth.auth']
-  end 
+  end
 end

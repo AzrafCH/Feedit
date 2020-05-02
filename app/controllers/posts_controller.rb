@@ -1,8 +1,5 @@
 class PostsController < ApplicationController
     before_action :require_logged_in
-    before_action :set_post, only: [:show, :edit, :update, :destroy]
-    after_action :verify_authorized
-    after_action :verify_policy_scoped
 
   def index
     @posts = Post.all
@@ -12,15 +9,15 @@ class PostsController < ApplicationController
   def new
     @post = current_user.posts.new
     @subfeds = Subfed.all
-    authorize @post
   end
 
   def edit
+    @post = Post.find_by(id: params[:id])
   end
 
   def show
     @subfed = Subfed.find_by(params[:subfed_id])
-
+    @post =  Post.find_by(id: params[:id])
     @comment = Comment.new
     @comment.post_id = params[:post_id]
     @comment.user_id = session[:user_id]
@@ -30,7 +27,6 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      authorize @post
       redirect_to post_path(@post.id)
     else
       @subfeds = Subfed.all
@@ -50,10 +46,6 @@ class PostsController < ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find_by(id: params[:id])
-      authorize @post
-    end
 
     def post_params
       params.require(:post).permit( :title, :summary, :subfed_id, :user_id)
