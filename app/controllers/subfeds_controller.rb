@@ -40,9 +40,8 @@ class SubfedsController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by(id: :user_id)
-    @user.subfed = Subfed.where(id: :user_id)
-    if @user.subfed === current_user
+    @subfed = Subfed.find(params[:id])
+    if @subfed.user_id == current_user.id
       Subfed.find(params[:id]).destroy
       redirect_to subfeds_path
     else
