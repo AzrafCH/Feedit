@@ -1,21 +1,4 @@
-<!-- <h1><%= @subfed.title %></h1>
-
-<p><%= @subfed.content %></p>
-
-
-<%= link_to "Create Post", new_post_path(@post) %><br>
-
-<% @subfed.posts.collect do |post| %>
-<h4><%= link_to post.title, post_path(post.id) %><h4>
-<% end %>
-
-
-
-<%= link_to "Back", subfeds_path %><br>
- <%= link_to "Edit Subfeed", edit_subfed_path(@subfed) %><br>
-  <%= button_to "Delete Subfeed", subfed_path(@subfed), method: :delete %><br> -->
-
-  <!DOCTYPE HTML>
+<!DOCTYPE HTML>
     <html>
       <body class="no-sidebar is-preload">
         <div id="page-wrapper">
@@ -32,10 +15,8 @@
                     <ul>
                       <li class="current"><%= link_to @user.username, users_path %></li>
                       <li><%= link_to "Create New Post", new_post_path %></li>
-                      <% if @subfed.users === @user %>
-                      <li><%= link_to "Edit Subfeed", edit_subfed_path(@subfed) %></li>
-                      <% end %>
-                      <li><%= button_to "Delete Subfeed", subfed_path(@subfed), method: :delete %></li>
+                      <li><%= link_to "Edit Subfeed", edit_subfed_path(@subfed) if policy(@subfed).update? %></li>
+                      <li><%= button_to "Delete Subfeed", subfed_path(@subfed), method: :delete if policy(@subfed).destroy?%></li>
                     </ul>
                   </nav>
                 </section>

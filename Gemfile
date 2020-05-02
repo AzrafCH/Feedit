@@ -32,6 +32,7 @@ gem 'dotenv-rails'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 #for authorization
 gem 'cancancan'
+gem 'pundit'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

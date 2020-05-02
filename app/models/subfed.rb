@@ -1,5 +1,6 @@
 class Subfed < ApplicationRecord
   validates :title, presence: true
+  validates :title, uniqueness: true
   validates :content, presence: true
 
   has_many :posts, foreign_key: :subfed_id, class_name: "Post", dependent: :destroy

@@ -116,6 +116,8 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
     puma (3.12.4)
+    pundit (2.1.0)
+      activesupport (>= 3.0.0)
     rack (2.2.2)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -208,6 +210,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   puma (~> 3.0)
+  pundit
   rails (~> 5.0.7, >= 5.0.7.2)
   sass-rails (~> 5.0)
   spring
@@ -220,4 +223,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.2
+   1.17.3

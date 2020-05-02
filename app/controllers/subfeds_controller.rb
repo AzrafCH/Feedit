@@ -1,5 +1,7 @@
 class SubfedsController < ApplicationController
-    before_action :require_logged_in, :current_user
+    before_action :require_logged_in
+    before_action :current_user
+    before_action :set_subfed, only: [:edit, :update, :destroy]
 
   def index
     @subfeds = Subfed.all
@@ -8,20 +10,20 @@ class SubfedsController < ApplicationController
 
   def new
     @subfed = Subfed.new
+    authorize @subfed
   end
 
   def edit
-    @subfed = Subfed.find(params[:id])
   end
 
   def show
-    @subfed = Subfed.find_by_id(params[:id])
+    @subfed = Subfed.find(params[:id])
   end
 
   def create
-    @subfed = Subfed.create(subfed_params)
-
+    @subfed = current_user.subfeds.build(subfed_params)
     if @subfed.save
+      authorize @subfed
       redirect_to subfed_url(@subfed)
     else
       render 'new'
@@ -40,9 +42,13 @@ class SubfedsController < ApplicationController
   end
 
   private
+    def set_subfed
+      @subfed = Subfed.find(params[:id])
+      authorize @subfed
+    end
 
     def subfed_params
-      params.require(:subfed).permit(:title, :content)
+      params.require(:subfed).permit(:title, :content, :user_id)
     end
 
 end
