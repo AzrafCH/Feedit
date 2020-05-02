@@ -15,8 +15,10 @@
                     <ul>
                       <li class="current"><%= link_to @user.username, users_path %></li>
                       <li><%= link_to "Create New Post", new_post_path %></li>
+                      <% if @subfed.user == @user %>
                       <li><%= link_to "Edit Subfeed", edit_subfed_path(@subfed)  %></li>
                       <li><%= button_to "Delete Subfeed", subfed_path(@subfed), method: :delete  %></li>
+                      <% end %>
                     </ul>
                   </nav>
                 </section>
