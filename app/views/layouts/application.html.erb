@@ -9,16 +9,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
-  <% flash.each do |name, msg| %>
-  <% if name == "success" %>
-    <%= content_tag :div, msg, id: "flash_#{name}", class: "alert alert-success" %>
-  <% else %>
-    <%= content_tag :div, msg, id: "flash_#{name}", class: "alert alert-warning" %>
-  <% end %>
-<% end %>
+
 </head>
 
   <body>
+    <% flash.each do |name, msg| %>
+      <div class = "flash">
+      <%= msg %>
+    </div>
+    <% end %>
     <%= yield :form_errors %>
     <%= yield %>
 

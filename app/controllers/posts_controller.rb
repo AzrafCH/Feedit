@@ -28,6 +28,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
+      flash[:success] = "You have succesfully created a new Post"
       redirect_to post_path(@post.id)
     else
       @subfeds = Subfed.all
@@ -39,6 +40,7 @@ class PostsController < ApplicationController
     @post = Post.find_by_id(params[:id])
     if @post.user_id == current_user.id
       @post.update(post_params)
+      flash[:success] = "You have succesfully updated your Post"
       redirect_to post_url(@post)
     else
       redirect_to users_path
@@ -49,6 +51,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.user_id == current_user.id
       @post = Post.find(params[:id]).destroy
+      flash[:success] = "You have succesfully deleted your Post"
       redirect_to posts_path
     else
       redirect_to users_path
