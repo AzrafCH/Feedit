@@ -2,7 +2,13 @@ class CommentsController < ApplicationController
     before_action :require_logged_in, :set_comment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @comments = Comment.all
+    if  params[:user_id]
+      @user = User.find(params[:user_id])
+      @comments = @user.comments
+    else
+      @comments = Comment.all
+    end
+    byebug
   end
 
   def new

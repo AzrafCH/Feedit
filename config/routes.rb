@@ -8,8 +8,12 @@ Rails.application.routes.draw do
 
   #delete '/subfeds/:id', to: 'subfeds#destroy', as: 'subfed'
 
-  resources :users, only: [:index, :new, :create, :edit, :update]
-  patch 'users/:id', to: 'users#update'
+  resources :users, only: [:index, :new, :create, :edit, :update] do
+    patch 'users/:id', to: 'users#update'
+    resources :comments, only: [:index]
+  end
+
+  resources :comments
 
   resources :subfeds, only: [:index, :new, :create, :edit, :update, :show, :destroy]
   patch 'subfeds/:id', to: 'subfeds#update'

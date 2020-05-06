@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    @recent_posts = Post.all.recent(10)
+    @recent_posts = Post.recent(10)
   end
 
   def new
